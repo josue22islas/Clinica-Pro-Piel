@@ -1,0 +1,86 @@
+
+
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    background: #1FA2FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
+
+
+
+ #p2, h6, h5{
+    text-align: center;
+    line-height: 14px;
+
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+h2, h1{
+    padding: 20px
+
+    
+    
+}
+h1{
+    font-weight: bold;
+    color: black;
+}
+
+
+
+p{
+    line-height: 22px;
+    text-align: justify;
+    padding: 20px;
+}
+
+#p3 {
+
+    line-height: 22px;
+    text-align: center;
+
+}
+
+#pass{
+    font-size: 14px;
+    text-align: center;
+}
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-container {
+    margin-top: 50px;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .table-responsive {
+    margin-top: 20px;
+  }
+  .table-responsive table {
+    min-width: 700px;
+  }
+
