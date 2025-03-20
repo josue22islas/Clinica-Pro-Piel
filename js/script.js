@@ -4892,67 +4892,73 @@
     }
 
 
+    
+    //MODIFICADO PARA LAS REDIRECCIONES//
 
-    //animacion del texto al hacer scroll
-    document.addEventListener('scroll', function() {
-        const container = document.getElementById('container');
-        const containerPosition = container.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3; // Ajusta este valor para cambiar el punto de activación
-    
-        if (containerPosition < screenPosition) {
-            container.classList.add('animate-on-scroll');
-        }
-    });
-    
-     ////modificado //////////////////////
-   
-     document.addEventListener("DOMContentLoaded", function () {
-        // Función genérica para manejar el cambio de slides
-        function setupSlider(selector, interval) {
-            const slides = document.querySelectorAll(selector);
-            if (slides.length === 0) return; // Si no hay elementos, no hacer nada
-    
-            let index = 0;
-    
-            // Función para cambiar de slide
-            function changeSlide() {
-                // Remover la clase 'active' del slide actual
-                slides[index].classList.remove("active");
-    
-                // Incrementar el índice para el siguiente slide
-                index = (index + 1) % slides.length; // Vuelve al inicio después del último
-    
-                // Añadir la clase 'active' al siguiente slide
-                slides[index].classList.add("active");
-            }
-    
-            // Inicia mostrando el primer slide
+// Animación del texto al hacer scroll (tu código existente)
+document.addEventListener('scroll', function () {
+    const container = document.getElementById('container');
+    const containerPosition = container.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+
+    if (containerPosition < screenPosition) {
+        container.classList.add('animate-on-scroll');
+    }
+});
+
+// Sliders (tu código existente)
+document.addEventListener("DOMContentLoaded", function () {
+    function setupSlider(selector, interval) {
+        const slides = document.querySelectorAll(selector);
+        if (slides.length === 0) return;
+
+        let index = 0;
+
+        function changeSlide() {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length;
             slides[index].classList.add("active");
-    
-            // Cambia el slide cada cierto tiempo (definido por el intervalo)
-            setInterval(changeSlide, interval);
         }
-    
-        // Configura el slider para text_animate_web
-        setupSlider(".text_animate_web", 20000); // Cambia cada 20 segundos
-    
-        // Configura el slider para text_animtablet
-        setupSlider(".text_animtablet", 20000); // Cambia cada 20 segundos
 
-        // Configura el slider para Card_1
-        setupSlider(".Card_1", 20000); // Cambia cada 20 segundos
+        slides[index].classList.add("active");
+        setInterval(changeSlide, interval);
+    }
 
-           // Configura el slider para Switch_22
-           setupSlider(".Switch_22", 20000); // Cambia cada 20 segundos
+    setupSlider(".text_animate_web", 20000);
+    setupSlider(".text_animtablet", 20000);
+    setupSlider(".Card_1", 20000);
+    setupSlider(".Switch_22", 20000);
+    setupSlider(".Switch_11", 20000);
+});
 
-           // Configura el slider para Switch_11
-           setupSlider(".Switch_11", 20000); // Cambia cada 20 segundos
-    });
+// Redirección de botones (nuevo código)
+document.addEventListener("DOMContentLoaded", function () {
+    // Función para redirigir
+    function redirectTo(url) {
+        window.location.href = url;
+    }
 
-    
-    
-    
-    
+    // Asignar redirecciones a los botones
+    const buttons = {
+        "Text_input_21": "index.html",       // Botón de Inicio
+        "Text_input_22": "Servicios.html",  // Botón de Servicios
+        "Text_input_24": "nosotros.html",   // Botón de Nosotros
+        "Button_1": "citas.html"            // Botón de Contacto
+    };
+
+    for (const [buttonId, url] of Object.entries(buttons)) {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.addEventListener("click", function () {
+                redirectTo(url);
+            });
+        }
+    }
+});
+
+////////////////////////////////
+
+
 
     function tt(e, t, r, n, o) {
         if (o.handled) return;
