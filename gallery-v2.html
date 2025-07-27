@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+<!--CDN DE BOOSTRAP -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <style>
+        .card {
+    border:none;
+    background-color: transparent;
+    box-shadow: none;
+    
+
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.card-img-top {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+    filter: blur(4px);
+    transition: filter 0.3s ease-in-out;
+    background-color: #f0f0f0;
+
+}
+
+.clean-img {
+    filter: blur(0);
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+    padding: 10px 0;
+    
+}
+    </style>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!--Card imagen 1#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/podologia3.jpeg" class="card-img-top blur-img" alt="foto 1">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+         <!--Card imagen 2#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/podologia.jpg" class="card-img-top blur-img" alt="foto 2">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+         <!--Card imagen 3#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/podologia2.jpg" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+         <!--Card imagen 4#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/tamiz.jpeg" class="card-img-top blur-img" alt="foto 4">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                    
+
+                </div>
+
+            </div>
+        </div>
+
+           <!--Card imagen 5#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/tamiz2.jpeg" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+            <!--Card imagen 6#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/tamiz3.jpg" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+            <!--Card imagen 7#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/dermatologia.png" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+            <!--Card imagen 8#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/dermatologia2.png" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+            <!--Card imagen 9#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/dermatologia3.png" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+            <!--Card imagen 10#-->
+            <div class="col-md-6 mb-4">
+            <div class="card text-center">
+                <img src="photos/dermatologia4.jpg" class="card-img-top blur-img" alt="foto 3">
+                <div class="card-footer">
+                    <button class="btn btn-primary"  onclick="toggleBlur(this)">Ver fotos
+
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="text-center mb-4">
+    <p>Fotos desbloqueadas: <span id="contador">0</span></p>
+</div>
+
+</body>
+</html>
+
+<script>
+    let contador = 0;
+
+function toggleBlur(button) {
+    const img = button.closest('.card').querySelector( 'img');
+    const isBlurred = img.classList.contains('blur-img');
+
+    if (isBlurred) {
+        img.classList.remove('blur-img');
+        img.classList.add('clean-img');
+        button.textContent = 'Ocultar Foto';
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-success'); 
+        contador++;
+
+    } else {
+        img.classList.remove('clean-img');
+        img.classList.add('blur-img');
+        button.textContent = 'Ver Foto';
+        button.classList.remove('btn-success');
+        button.classList.add('btn-primary'); 
+        contador--;
+    }
+
+    document.getElementById('contador').textContent = contador;
+
+}
+  
+
+</script>
